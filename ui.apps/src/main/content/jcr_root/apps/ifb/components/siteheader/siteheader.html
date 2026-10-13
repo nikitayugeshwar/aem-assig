@@ -1,0 +1,29 @@
+<!--/* Site Header: brand + navigation. The XF component wraps this in a <header> element (see policy_header). */-->
+<sly data-sly-use.header="com.ifb.aem.core.core.models.SiteHeader"/>
+<div data-sly-test="${!header.empty}"
+     class="ifb-header"
+     data-ifb-header>
+    <div class="ifb-header__inner">
+        <a class="ifb-header__brand" href="${header.homeUrl}">
+            <img data-sly-test="${header.logo}" class="ifb-header__logo" src="${header.logo}" alt="${header.brandName}"/>
+            <span data-sly-test="${!header.logo}" class="ifb-header__mark" aria-hidden="true">${header.initial}</span>
+            <span class="ifb-header__name">${header.brandName}</span>
+        </a>
+        <button class="ifb-header__toggle" type="button" aria-expanded="false" aria-label="Toggle navigation"
+                data-ifb-header-toggle>
+            <span class="ifb-header__bar"></span>
+            <span class="ifb-header__bar"></span>
+            <span class="ifb-header__bar"></span>
+        </button>
+        <nav class="ifb-header__nav" aria-label="Main" data-ifb-header-nav>
+            <ul class="ifb-header__list" data-sly-list.link="${header.links}">
+                <li class="ifb-header__item">
+                    <a class="ifb-header__link" href="${link.url}"
+                       target="${link.newTab ? '_blank' : ''}" rel="${link.newTab ? 'noopener' : ''}">${link.label}</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+<sly data-sly-use.template="core/wcm/components/commons/v1/templates.html"
+     data-sly-call="${template.placeholder @ isEmpty=header.empty, classAppend='ifb-header'}"/>

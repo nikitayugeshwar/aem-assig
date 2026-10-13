@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:template="/conf/ifb/settings/wcm/templates/ifb-landing-page"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Our Team"
+        sling:resourceType="ifb/components/page">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="ifb/components/container"
+            layout="responsiveGrid">
+            <main
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="ifb/components/container"
+                layout="responsiveGrid">
+                <content
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="ifb/components/container"
+                    layout="responsiveGrid">
+                    <title
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="ifb/components/title"
+                        jcr:title="Our Team"
+                        type="h1"/>
+                    <text
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="ifb/components/text"
+                        text="&lt;p>Meet the people behind IFB Team Hub. This page is built from the custom &lt;b>IFB Landing Page&lt;/b> editable template, with our own header and footer experience fragments.&lt;/p>"
+                        textIsRich="true"/>
+                    <teammembers
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="ifb/components/teammembers"
+                        heading="Meet the Team"
+                        description="The people who design, build and test our AEM experiences. Filter by role, or click View bio to learn more about each person."
+                        hideFilter="{Boolean}false">
+                        <members jcr:primaryType="nt:unstructured">
+                            <item0
+                                jcr:primaryType="nt:unstructured"
+                                name="Aarav Sharma"
+                                role="Tech Lead"
+                                photo="/content/dam/ifb/team/aarav-sharma.svg"
+                                bio="Leads the AEM squad, reviews architecture and keeps releases on track. Loves clean Sling Models."/>
+                            <item1
+                                jcr:primaryType="nt:unstructured"
+                                name="Priya Nair"
+                                role="AEM Developer"
+                                photo="/content/dam/ifb/team/priya-nair.svg"
+                                bio="Builds custom components and editable templates. Expert in HTL and clientlibs."/>
+                            <item2
+                                jcr:primaryType="nt:unstructured"
+                                name="Rohan Mehta"
+                                role="AEM Developer"
+                                photo="/content/dam/ifb/team/rohan-mehta.svg"
+                                bio="Works on integrations and OSGi services, from APIs to scheduled jobs."/>
+                            <item3
+                                jcr:primaryType="nt:unstructured"
+                                name="Sneha Kulkarni"
+                                role="UX Designer"
+                                photo="/content/dam/ifb/team/sneha-kulkarni.svg"
+                                bio="Designs the look and feel of the site and makes sure every page is accessible."/>
+                            <item4
+                                jcr:primaryType="nt:unstructured"
+                                name="Vikram Joshi"
+                                role="QA Engineer"
+                                photo="/content/dam/ifb/team/vikram-joshi.svg"
+                                bio="Tests every release across browsers and devices before it goes live."/>
+                        </members>
+                    </teammembers>
+                </content>
+            </main>
+        </root>
+    </jcr:content>
+</jcr:root>

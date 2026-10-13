@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Component"
+    jcr:title="Site Header"
+    jcr:description="Custom site header with brand, navigation links and a mobile menu"
+    componentGroup="IFB AEM Cloud - Content"/>

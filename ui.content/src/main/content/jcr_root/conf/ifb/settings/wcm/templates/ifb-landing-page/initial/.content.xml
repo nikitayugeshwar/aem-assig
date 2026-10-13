@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:template="/conf/ifb/settings/wcm/templates/ifb-landing-page"
+        jcr:primaryType="cq:PageContent"
+        sling:resourceType="ifb/components/page">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="ifb/components/container"
+            layout="responsiveGrid">
+            <main
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="ifb/components/container"
+                layout="responsiveGrid">
+                <content
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="ifb/components/container"
+                    layout="responsiveGrid">
+                    <title
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="ifb/components/title"/>
+                </content>
+            </main>
+        </root>
+    </jcr:content>
+</jcr:root>

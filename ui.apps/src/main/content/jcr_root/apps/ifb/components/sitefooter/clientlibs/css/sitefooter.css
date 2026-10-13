@@ -1,0 +1,104 @@
+/* Site Footer (ifb/components/sitefooter) */
+.ifb-footer {
+    --ifb-footer-bg: #0b1a29;
+    --ifb-footer-text: #ffffff;
+    --ifb-footer-muted: #9fb0c0;
+    --ifb-footer-accent: #e63946;
+
+    margin-top: 48px;
+    background: var(--ifb-footer-bg);
+    color: var(--ifb-footer-muted);
+    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 15px;
+}
+
+.ifb-footer__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px 24px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 32px;
+}
+
+.ifb-footer__about {
+    max-width: 420px;
+}
+
+.ifb-footer__brand {
+    margin: 0 0 8px;
+    color: var(--ifb-footer-text);
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.ifb-footer__text {
+    margin: 0;
+    line-height: 1.6;
+}
+
+.ifb-footer__heading {
+    margin: 0 0 10px;
+    color: var(--ifb-footer-text);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.ifb-footer__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.ifb-footer__item + .ifb-footer__item {
+    margin-top: 6px;
+}
+
+.ifb-footer__link {
+    color: var(--ifb-footer-muted);
+    text-decoration: none;
+}
+
+.ifb-footer__link:hover,
+.ifb-footer__link:focus-visible {
+    color: var(--ifb-footer-text);
+    text-decoration: underline;
+    text-decoration-color: var(--ifb-footer-accent);
+}
+
+.ifb-footer__bottom {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 16px 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.ifb-footer__copyright {
+    margin: 0;
+    font-size: 13px;
+}
+
+.ifb-footer__top {
+    padding: 6px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 20px;
+    background: transparent;
+    color: var(--ifb-footer-text);
+    font: inherit;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.ifb-footer__top:hover,
+.ifb-footer__top:focus-visible {
+    border-color: var(--ifb-footer-accent);
+    background: var(--ifb-footer-accent);
+}

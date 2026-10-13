@@ -1,0 +1,198 @@
+/* Team Members (ifb/components/teammembers) */
+.ifb-team {
+    --ifb-team-card-bg: #ffffff;
+    --ifb-team-card-text: #12263a;
+    --ifb-team-muted: #5b6b7b;
+    --ifb-team-accent: #e63946;
+    --ifb-team-navy: #12263a;
+
+    max-width: 1200px;
+    margin: 32px auto;
+    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.ifb-team__intro {
+    margin-bottom: 20px;
+}
+
+.ifb-team__heading {
+    margin: 0 0 8px;
+    font-size: 28px;
+}
+
+.ifb-team__description {
+    margin: 0;
+    max-width: 640px;
+    line-height: 1.6;
+    opacity: 0.85;
+}
+
+/* Role filter */
+.ifb-team__filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.ifb-team__filter {
+    padding: 6px 16px;
+    border: 1px solid currentColor;
+    border-radius: 20px;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: background-color 0.15s ease, opacity 0.15s ease;
+}
+
+.ifb-team__filter:hover,
+.ifb-team__filter:focus-visible {
+    opacity: 1;
+}
+
+.ifb-team__filter--active {
+    border-color: var(--ifb-team-accent);
+    background: var(--ifb-team-accent);
+    color: #ffffff;
+    opacity: 1;
+}
+
+.ifb-team__count {
+    margin: 0 0 16px;
+    font-size: 13px;
+    opacity: 0.7;
+}
+
+/* Grid of cards */
+.ifb-team__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.ifb-team__member {
+    perspective: 1000px;
+    animation: ifb-team-fade-in 0.3s ease;
+}
+
+.ifb-team__member[hidden] {
+    display: none;
+}
+
+@keyframes ifb-team-fade-in {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: none; }
+}
+
+/* Flip card: both faces share one grid cell, the back is rotated 180deg */
+.ifb-team__card {
+    position: relative;
+    display: grid;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+}
+
+.ifb-team__card--flipped {
+    transform: rotateY(180deg);
+}
+
+.ifb-team__face {
+    grid-area: 1 / 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 28px 20px 20px;
+    border-radius: 12px;
+    background: var(--ifb-team-card-bg);
+    color: var(--ifb-team-card-text);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
+    text-align: center;
+    backface-visibility: hidden;
+}
+
+.ifb-team__face--back {
+    justify-content: center;
+    background: var(--ifb-team-navy);
+    color: #ffffff;
+    transform: rotateY(180deg);
+}
+
+.ifb-team__photo,
+.ifb-team__initials {
+    width: 112px;
+    height: 112px;
+    margin-bottom: 16px;
+    border-radius: 50%;
+    border: 4px solid var(--ifb-team-accent);
+}
+
+.ifb-team__photo {
+    object-fit: cover;
+}
+
+.ifb-team__initials {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--ifb-team-navy);
+    color: #ffffff;
+    font-size: 36px;
+    font-weight: 600;
+}
+
+.ifb-team__name {
+    margin: 0 0 4px;
+    font-size: 18px;
+}
+
+.ifb-team__role {
+    margin: 0 0 16px;
+    color: var(--ifb-team-muted);
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.ifb-team__bio {
+    margin: 8px 0 16px;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.ifb-team__flip {
+    margin-top: auto;
+    padding: 6px 16px;
+    border: 1px solid var(--ifb-team-accent);
+    border-radius: 20px;
+    background: transparent;
+    color: var(--ifb-team-accent);
+    font: inherit;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.ifb-team__flip:hover,
+.ifb-team__flip:focus-visible {
+    background: var(--ifb-team-accent);
+    color: #ffffff;
+}
+
+.ifb-team__flip--back {
+    border-color: #ffffff;
+    color: #ffffff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .ifb-team__card,
+    .ifb-team__member {
+        transition: none;
+        animation: none;
+    }
+}

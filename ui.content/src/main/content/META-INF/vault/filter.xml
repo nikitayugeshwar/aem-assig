@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/conf/ifb" mode="merge"/>
+    <filter root="/content/ifb" mode="merge"/>
+    <filter root="/content/dam/ifb" mode="merge">
+        <exclude pattern="/content/dam/ifb(/.*)?"/>
+        <include pattern="/content/dam/ifb/jcr:content(/.*)?"/>
+    </filter>
+    <filter root="/content/dam/ifb/asset.jpg" mode="merge"/>
+    <filter root="/content/experience-fragments/ifb" mode="merge"/>
+</workspaceFilter>

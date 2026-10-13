@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:tags="[]"
+        cq:template="/conf/ifb/settings/wcm/templates/xf-web-variation"
+        cq:xfMasterVariation="{Boolean}true"
+        cq:xfVariantType="web"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="IFB Header"
+        sling:resourceType="ifb/components/xfpage">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="ifb/components/container"
+            layout="responsiveGrid">
+            <siteheader
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="ifb/components/siteheader"
+                brandName="IFB Team Hub"
+                homeLink="/content/ifb/us/en">
+                <links jcr:primaryType="nt:unstructured">
+                    <item0
+                        jcr:primaryType="nt:unstructured"
+                        label="Home"
+                        link="/content/ifb/us/en"
+                        newTab="{Boolean}false"/>
+                    <item1
+                        jcr:primaryType="nt:unstructured"
+                        label="Our Team"
+                        link="/content/ifb/us/en/our-team"
+                        newTab="{Boolean}false"/>
+                    <item2
+                        jcr:primaryType="nt:unstructured"
+                        label="AEM Docs"
+                        link="https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service"
+                        newTab="{Boolean}true"/>
+                </links>
+            </siteheader>
+        </root>
+    </jcr:content>
+</jcr:root>

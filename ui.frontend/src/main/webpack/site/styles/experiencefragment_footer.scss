@@ -1,0 +1,17 @@
+
+//== XF Footer style, used on page template
+
+// Sample footer styles; skipped for our custom IFB Footer (ifb/components/sitefooter), which styles itself
+footer.experiencefragment:not(:has(.ifb-footer)) {
+    padding: .5em 1em;
+    border-top: 1px solid $color-foreground;
+
+    @media (prefers-color-scheme: dark) {
+        border-color: $color-foreground-dark;
+    }
+
+    .cmp-separator__horizontal-rule {
+        margin: 0;
+        border: 0;
+    }
+}

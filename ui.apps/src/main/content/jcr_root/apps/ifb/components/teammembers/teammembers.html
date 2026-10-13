@@ -1,0 +1,40 @@
+<!--/* Team Members: intro, role filter and a grid of flip cards (front: photo/name/role, back: bio). */-->
+<sly data-sly-use.team="com.ifb.aem.core.core.models.TeamMembers"/>
+<section data-sly-test="${!team.empty}" class="ifb-team" data-ifb-team>
+    <div class="ifb-team__intro">
+        <h2 class="ifb-team__heading">${team.heading || 'Meet the Team'}</h2>
+        <p class="ifb-team__description" data-sly-test="${team.description}">${team.description}</p>
+    </div>
+
+    <div data-sly-test="${team.showFilter}" class="ifb-team__filters" role="group" aria-label="Filter team members by role">
+        <button type="button" class="ifb-team__filter ifb-team__filter--active" aria-pressed="true"
+                data-ifb-team-filter="">All</button>
+        <button data-sly-repeat.role="${team.roles}" type="button" class="ifb-team__filter" aria-pressed="false"
+                data-ifb-team-filter="${role}">${role}</button>
+    </div>
+    <p class="ifb-team__count" aria-live="polite" data-ifb-team-count>Showing ${team.count} of ${team.count} members</p>
+
+    <ul class="ifb-team__grid" data-sly-list.member="${team.members}">
+        <li class="ifb-team__member" data-ifb-team-role="${member.role}">
+            <div class="ifb-team__card" data-ifb-team-card>
+                <div class="ifb-team__face ifb-team__face--front">
+                    <img data-sly-test="${member.photo}" class="ifb-team__photo" src="${member.photo}" alt="${member.name}" loading="lazy"/>
+                    <span data-sly-test="${!member.photo}" class="ifb-team__initials" aria-hidden="true">${member.initials}</span>
+                    <h3 class="ifb-team__name">${member.name}</h3>
+                    <p class="ifb-team__role">${member.role}</p>
+                    <button data-sly-test="${member.bio}" type="button" class="ifb-team__flip" aria-expanded="false"
+                            aria-label="${'Show bio of {0}' @ format=member.name}"
+                            data-ifb-team-flip>View bio</button>
+                </div>
+                <div data-sly-test="${member.bio}" class="ifb-team__face ifb-team__face--back" aria-hidden="true">
+                    <h3 class="ifb-team__name">${member.name}</h3>
+                    <p class="ifb-team__bio">${member.bio}</p>
+                    <button type="button" class="ifb-team__flip ifb-team__flip--back" tabindex="-1"
+                            data-ifb-team-flip>Back</button>
+                </div>
+            </div>
+        </li>
+    </ul>
+</section>
+<sly data-sly-use.template="core/wcm/components/commons/v1/templates.html"
+     data-sly-call="${template.placeholder @ isEmpty=team.empty, classAppend='ifb-team'}"/>

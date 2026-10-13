@@ -1,0 +1,25 @@
+<!--/* Site Footer. The XF component wraps this in a <footer> element (see policy_footer). */-->
+<sly data-sly-use.footer="com.ifb.aem.core.core.models.SiteFooter"/>
+<div data-sly-test="${!footer.empty}" class="ifb-footer" data-ifb-footer>
+    <div class="ifb-footer__inner">
+        <div class="ifb-footer__about">
+            <p class="ifb-footer__brand" data-sly-test="${footer.brandName}">${footer.brandName}</p>
+            <p class="ifb-footer__text" data-sly-test="${footer.description}">${footer.description}</p>
+        </div>
+        <nav class="ifb-footer__nav" aria-label="Footer" data-sly-test="${footer.links}">
+            <p class="ifb-footer__heading" data-sly-test="${footer.linksHeading}">${footer.linksHeading}</p>
+            <ul class="ifb-footer__list" data-sly-list.link="${footer.links}">
+                <li class="ifb-footer__item">
+                    <a class="ifb-footer__link" href="${link.url}"
+                       target="${link.newTab ? '_blank' : ''}" rel="${link.newTab ? 'noopener' : ''}">${link.label}</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div class="ifb-footer__bottom">
+        <p class="ifb-footer__copyright">${footer.copyright}</p>
+        <button class="ifb-footer__top" type="button" data-ifb-back-to-top>Back to top &uarr;</button>
+    </div>
+</div>
+<sly data-sly-use.template="core/wcm/components/commons/v1/templates.html"
+     data-sly-call="${template.placeholder @ isEmpty=footer.empty, classAppend='ifb-footer'}"/>
