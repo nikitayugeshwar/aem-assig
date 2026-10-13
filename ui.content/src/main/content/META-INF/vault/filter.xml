@@ -7,5 +7,6 @@
         <include pattern="/content/dam/ifb/jcr:content(/.*)?"/>
     </filter>
     <filter root="/content/dam/ifb/asset.jpg" mode="merge"/>
+    <filter root="/content/dam/ifb/team" mode="merge"/>
     <filter root="/content/experience-fragments/ifb" mode="merge"/>
 </workspaceFilter>

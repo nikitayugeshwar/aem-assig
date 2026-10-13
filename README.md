@@ -1,3 +1,31 @@
+# AEM Training Assignment – IFB Team Hub
+
+AEM as a Cloud Service project (Maven archetype, Java 11 build) implementing the training assignment.
+
+| Task | What was built | Where |
+|---|---|---|
+| **Task 1** – Template & Experience Fragments | Editable template **IFB Landing Page** with our own Header and Footer Experience Fragments (custom `siteheader` / `sitefooter` components, not Core defaults). The Home and Our Team pages are created from it. | `ui.content/.../conf/ifb/settings/wcm/templates/ifb-landing-page`<br>`ui.content/.../content/experience-fragments/ifb/us/en/site/ifb-header`, `ifb-footer`<br>`ui.apps/.../components/siteheader`, `sitefooter` |
+| **Task 2** – Team Members component | Multifield dialog (name, role, photo, bio), own clientlib: role filter buttons and flip cards with bio. Authored on the Our Team page. | `ui.apps/.../components/teammembers`<br>`core/.../models/TeamMembers.java`, `TeamMember.java` |
+| **Bonus** – City Weather component | Author enters a city; the server fetches current weather (OpenWeatherMap when an API key is configured, keyless Open-Meteo otherwise) with a 10-minute cache. Clientlib adds a °C/°F toggle and a Refresh button backed by a `.weather.json` servlet. | `ui.apps/.../components/cityweather`<br>`core/.../services/impl/WeatherServiceImpl.java`<br>`core/.../models/CityWeather.java`<br>`core/.../servlets/CityWeatherServlet.java` |
+
+### Run it
+
+```
+mvn clean install -PautoInstallSinglePackage -pl '!ui.tests'
+```
+
+Then open (author, admin/admin):
+
+- Home: http://localhost:4502/content/ifb/us/en.html
+- Our Team: http://localhost:4502/content/ifb/us/en/our-team.html
+- Template: http://localhost:4502/editor.html/conf/ifb/settings/wcm/templates/ifb-landing-page/structure.html
+
+`ui.tests` (Cypress) is excluded because its `npm ci` does not run on Windows; Cloud Manager runs it in its own pipeline.
+
+**OpenWeatherMap key (optional):** set `apiKey` in `ui.config/.../com.ifb.aem.core.core.services.impl.WeatherServiceImpl.cfg.json`, or the `OPENWEATHER_API_KEY` secret environment variable in Cloud Manager. Without a key the component uses Open-Meteo.
+
+---
+
 # Sample AEM project template
 
 This is a project template for AEM-based applications. It is intended as a best-practice set of examples as well as a potential starting point to develop your own functionality.

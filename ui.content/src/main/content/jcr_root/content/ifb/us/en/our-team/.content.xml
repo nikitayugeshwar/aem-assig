@@ -67,6 +67,11 @@
                                 bio="Tests every release across browsers and devices before it goes live."/>
                         </members>
                     </teammembers>
+                    <cityweather
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="ifb/components/cityweather"
+                        city="Pune"
+                        heading="Weather at our Pune office"/>
                 </content>
             </main>
         </root>

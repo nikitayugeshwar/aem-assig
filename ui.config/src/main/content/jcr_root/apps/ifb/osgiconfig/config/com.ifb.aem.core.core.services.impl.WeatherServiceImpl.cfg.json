@@ -1,0 +1,6 @@
+{
+    "apiKey": "$[secret:OPENWEATHER_API_KEY;default=]",
+    "fallbackEnabled": true,
+    "cacheMinutes": 10,
+    "timeoutMillis": 4000
+}

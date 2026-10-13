@@ -1,4 +1,27 @@
-.cmp-button {}
+.cmp-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 8px 0 16px;
+  padding: 12px 28px;
+  border-radius: 999px;
+  background: #e63946;
+  color: #ffffff;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.2s ease;
+
+  &:hover,
+  &:focus-visible {
+    background: #c92f3b;
+    transform: translateY(-1px);
+  }
+
+  &:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 3px;
+  }
+}
 .cmp-button__text {}
 .cmp-button__icon {}
 //.cmp-button__icon--myIcon {}

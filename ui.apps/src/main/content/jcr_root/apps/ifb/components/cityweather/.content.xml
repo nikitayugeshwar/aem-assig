@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Component"
+    jcr:title="City Weather"
+    jcr:description="Shows the current weather of a city entered by the author"
+    componentGroup="IFB AEM Cloud - Content"/>

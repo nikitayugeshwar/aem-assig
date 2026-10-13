@@ -86,6 +86,13 @@ Import-Package: javax.annotation;version=0.0.0,*
             <artifactId>slf4j-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <!-- The SDK API jar only contains Gson's exported packages; unit tests need the full library. -->
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.10.1</version>
+            <scope>test</scope>
+        </dependency>
         <dependency>
             <groupId>com.adobe.aem</groupId>
             <artifactId>aem-sdk-api</artifactId>

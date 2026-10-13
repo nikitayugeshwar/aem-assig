@@ -1,0 +1,40 @@
+<!--/* City Weather: current weather of the authored city, rendered server-side; the clientlib adds a
+       C/F toggle and a Refresh button backed by the .weather.json servlet. */-->
+<sly data-sly-use.weather="com.ifb.aem.core.core.models.CityWeather"/>
+<section data-sly-test="${!weather.empty}"
+         class="ifb-weather ifb-weather--${weather.available ? weather.report.condition : 'unavailable'} ${weather.available && !weather.report.day ? 'ifb-weather--night' : ''}"
+         data-ifb-weather="${resource.path}.weather.json"
+         data-ifb-weather-fetched="${weather.report.fetchedAt}">
+    <header class="ifb-weather__header">
+        <h2 class="ifb-weather__heading">${weather.heading || 'Weather right now'}</h2>
+        <div class="ifb-weather__units" role="group" aria-label="Temperature unit">
+            <button type="button" class="ifb-weather__unit ifb-weather__unit--active" aria-pressed="true" data-ifb-weather-unit="C">&deg;C</button>
+            <button type="button" class="ifb-weather__unit" aria-pressed="false" data-ifb-weather-unit="F">&deg;F</button>
+        </div>
+    </header>
+
+    <div class="ifb-weather__body" data-sly-test="${weather.available}">
+        <span class="ifb-weather__symbol" aria-hidden="true" data-ifb-weather-field="symbol">${weather.symbol}</span>
+        <div class="ifb-weather__main">
+            <p class="ifb-weather__location" data-ifb-weather-field="location">${weather.location}</p>
+            <p class="ifb-weather__temp"><span data-ifb-weather-temp="${weather.report.temperature}">${weather.temperature}</span><span class="ifb-weather__deg" data-ifb-weather-deg>&deg;C</span></p>
+            <p class="ifb-weather__desc" data-ifb-weather-field="description">${weather.report.description}</p>
+        </div>
+        <dl class="ifb-weather__details">
+            <div><dt>Feels like</dt><dd><span data-ifb-weather-temp="${weather.report.feelsLike}">${weather.feelsLike}</span><span data-ifb-weather-deg>&deg;C</span></dd></div>
+            <div><dt>Humidity</dt><dd><span data-ifb-weather-field="humidity">${weather.report.humidity}</span>%</dd></div>
+            <div><dt>Wind</dt><dd><span data-ifb-weather-field="wind">${weather.windSpeed}</span> km/h</dd></div>
+        </dl>
+    </div>
+    <p class="ifb-weather__error" data-sly-test="${!weather.available}" data-ifb-weather-error>
+        Weather for <strong>${weather.city}</strong> is not available right now. Check the city name or try again.
+    </p>
+
+    <footer class="ifb-weather__footer">
+        <span class="ifb-weather__updated" aria-live="polite" data-ifb-weather-updated></span>
+        <span class="ifb-weather__source" data-sly-test="${weather.available}">Source: <span data-ifb-weather-field="provider">${weather.report.provider}</span></span>
+        <button type="button" class="ifb-weather__refresh" data-ifb-weather-refresh>Refresh</button>
+    </footer>
+</section>
+<sly data-sly-use.template="core/wcm/components/commons/v1/templates.html"
+     data-sly-call="${template.placeholder @ isEmpty=weather.empty, classAppend='ifb-weather'}"/>
